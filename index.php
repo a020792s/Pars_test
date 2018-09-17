@@ -16,7 +16,7 @@ try {
         //->tor()     //uncomment it if you want to use TOR
     ;
     db::getInstance()->renameOldAndCreateNewTable();
-    for ($j = 1; $j <= 1; $j++) {
+    for ($j = 1; $j <= 5; $j++) {
         $result = $ch->request("/suspension-systems.html?page=" . $j);
         $crawler = new Crawler($result);
         $html = $crawler->filter('.lst_a');
