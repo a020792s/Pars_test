@@ -1,0 +1,11 @@
+emailForResult: as020792@yandex.ru
+
+mailerUsername: a020792s
+mailerPassword: svadim1972
+mailerSMTP: smtp.gmail.com
+mailerPort: 587
+
+dbServer: localhost
+dbUsername: root
+dbPassword: Svadim1972!
+dbName: pars_test
