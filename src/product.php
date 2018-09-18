@@ -1,5 +1,8 @@
 <?php
 
+namespace CARiD\Parser;
+
+use DateTime;
 use Symfony\Component\DomCrawler\Crawler;
 
 class product
@@ -66,7 +69,7 @@ class product
         $crawler = new Crawler($result);
         try {
             return substr(preg_replace('/.*\\(/', '', $crawler->filterXPath('//div[@class=\'prod-review-title app-title app-content-minus app-content-plus\']')->text()), 0, -2);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return 0;
         }
     }
@@ -100,7 +103,7 @@ class product
         $request = "offset=" . $i . "&type=new&id=" . $requestID . "&action=" . $action;
         try {
             return curl::getInstance($this->host)->post($request)->request("/submit_review.php");
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo "Problems with reviews POST request - " . $e->getCode() . " - " . $e->getMessage();
             return false;
         }

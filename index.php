@@ -2,12 +2,18 @@
 /*ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);*/
+
 $start = microtime(true);
 $scriptStart = date("Y-m-d H:i:s");
 
+use CARiD\Parser\db;
+use CARiD\Parser\product;
+use CARiD\Parser\reportMaker;
 use Symfony\Component\DomCrawler\Crawler;
-
+use CARiD\Parser\curl;
 require_once('vendor/autoload.php');
+
+
 try {
     $host = 'https://www.carid.com';
     $ch = curl::getInstance($host)

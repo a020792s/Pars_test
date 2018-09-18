@@ -1,5 +1,7 @@
 <?php
 
+namespace CARiD\Parser;
+
 class reportMaker
 {
     private $newProductsQuery = "Select NOW.IDIENTIFIER FROM NOW left join WAS using(IDIENTIFIER) where WAS.IDIENTIFIER is NULL";

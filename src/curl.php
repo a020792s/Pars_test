@@ -1,5 +1,6 @@
 <?php
 
+namespace CARiD\Parser;
 
 class curl
 {

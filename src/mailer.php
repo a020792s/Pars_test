@@ -1,5 +1,7 @@
 <?php
 
+namespace CARiD\Parser;
+
 use PHPMailer\PHPMailer\PHPMailer;
 
 class mailer
