@@ -18,10 +18,12 @@ class db
     private function __construct()
     {
         $this->connection = new mysqli(data::getInstance()->getDbServer(), data::getInstance()->getDbUsername(), data::getInstance()->getDbPassword(), data::getInstance()->getDbName());
-        $this->connection->set_charset('utf8');
-        if (mysqli_connect_error()) {
-            trigger_error("Failed to connect to MySQL: " . mysqli_connect_error(),
-                E_USER_ERROR);
+        if($this->connection->connect_error){
+            die('MySQL Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
+        }
+        else
+        {
+            $this->connection->set_charset('utf8');
         }
     }
 
