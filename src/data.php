@@ -41,7 +41,7 @@ class data
     private function getDatafromFile()
     {
         $ar = array();
-        $descriptor = fopen("gitconfig_file.txt", 'r');
+        $descriptor = fopen("config_file.txt", 'r');
         if ($descriptor) {
             while (($string = fgets($descriptor)) !== false) {
                 $temp = explode(": ", substr($string, 0, -1));
