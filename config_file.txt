@@ -1,7 +1,7 @@
 emailForResult: as020792@yandex.ru
 
-mailerUsername: a020792s
-mailerPassword: svadim1972
+mailerUsername: pars.no.reply.18
+mailerPassword: qwerty123456
 mailerSMTP: smtp.gmail.com
 mailerPort: 587
 
