@@ -11,16 +11,21 @@ class reportMaker
 
     public function createAndSendReports($start, $scriptStart)
     {
+        $products = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "files" . DIRECTORY_SEPARATOR . "products.csv";
+        $new = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "files" . DIRECTORY_SEPARATOR . "new_products.csv";
+        $disappeared = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "files" . DIRECTORY_SEPARATOR . "disappeared_products.csv";
+        $reviewed = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "files" . DIRECTORY_SEPARATOR . "recently_reviewed_products.csv";
+
         if (db::getInstance()->isWasTableExist()) {
-            $this->createCSV($this->newProductsQuery,"files/new_products.csv");
-            $this->createCSV($this->disappearedProductsQuery,"files/disappeared_products.csv");
-            $this->createCSV($this->reviewedProductsQuery,"files/recently_reviewed_products.csv");
-            $ar = array("files/new_products.csv", "files/disappeared_products.csv", "files/recently_reviewed_products.csv");
+            $this->createCSV($this->newProductsQuery, $new);
+            $this->createCSV($this->disappearedProductsQuery, $disappeared);
+            $this->createCSV($this->reviewedProductsQuery, $reviewed);
+            $ar = array($new, $disappeared, $reviewed);
             $m = new mailer();
             $m->sendLetter($ar, $start, $scriptStart);
         } else {
-            $this->createCSV($this->productsQuery,"files/products.csv");
-            $ar = array("/home/user/server/pars_test.cc/files/products.csv");
+            $this->createCSV($this->productsQuery, $products);
+            $ar = array($products);
             $m = new mailer();
             $m->sendLetter($ar, $start, $scriptStart);
         }
